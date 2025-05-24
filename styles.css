@@ -66,34 +66,74 @@ body {
 
 /*    Images    */
 
-.images {
+.carousel-track img {
+    width: 300px;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 15px;
+    transform: rotate(1deg);
+}
+
+/* Images 2, 4 — same rotation */
+.carousel-track img:nth-child(even) {
+    transform: rotate(-1deg);
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding: 1rem;
-    width: auto;
-    max-width: 100%;
-    margin: 3em 0;
+    gap: 2em;
+    animation: scroll 10s linear infinite;
 }
 
-.images img {
+.carousel-track img {
+    width: 300px;
+    height: 300px;
     flex-shrink: 0;
-    height: 220px;
-    width: 200px;
-    scroll-snap-align: center;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
 }
 
-.images img:nth-child(odd) {
-    transform: rotate(3deg);
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
-.images img:nth-child(even) {
-    transform: rotate(-3deg);
-}
+/*.images {*/
+/*    display: flex;*/
+/*    gap: 10px;*/
+/*    overflow-x: auto;*/
+/*    scroll-snap-type: x mandatory;*/
+/*    scroll-behavior: smooth;*/
+/*    padding: 1rem;*/
+/*    width: auto;*/
+/*    max-width: 100%;*/
+/*    margin: 3em 0;*/
+/*}*/
+
+/*.images img {*/
+/*    flex-shrink: 0;*/
+/*    height: 220px;*/
+/*    width: 200px;*/
+/*    scroll-snap-align: center;*/
+/*    border-radius: 10px;*/
+/*    transition: transform 0.3s ease;*/
+/*}*/
+
+/*.images img:nth-child(odd) {*/
+/*    transform: rotate(3deg);*/
+/*}*/
+
+/*.images img:nth-child(even) {*/
+/*    transform: rotate(-3deg);*/
+/*}*/
 
 
 /*    System        */
@@ -324,10 +364,6 @@ body {
 
 @media (min-width: 1024px) {
 
-    body {
-        background-color: black;
-    }
-
     .container {
         display: flex;
         flex-direction: column;
@@ -393,19 +429,7 @@ body {
 
 /*    Images    */
 
-    .images {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: visible;
-        flex-direction: row;
-        color: white;
-        text-align: center;
-        gap: 2em;
-        margin: 2em 0;
-    }
-
-    .images img {
+    .carousel-track img {
         width: 300px;
         height: 330px;
         object-fit: cover;
@@ -414,11 +438,39 @@ body {
     }
 
     /* Images 2, 4 — same rotation */
-    .images img:nth-child(even) {
+    .carousel-track img:nth-child(even) {
         transform: rotate(-1deg);
     }
 
-/*    System        */
+    .carousel {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 2em;
+        animation: scroll 20s linear infinite;
+    }
+
+    .carousel-track img {
+        width: 300px;
+        height: 300px;
+        flex-shrink: 0;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+
+    /*    System        */
 
     .system {
         display: flex;
